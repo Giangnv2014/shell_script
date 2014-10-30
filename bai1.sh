@@ -9,10 +9,13 @@ sum=0
 sum2=0
 for (( i = 1; i <= $n; i++ ))
   do
-    sum=$[sum+i]
-    if [("$i" / 2) -eq 0]; then
+   #sum=$[sum+i]
+    sum=$(($sum + $i))
+   # tmp=`expr $i % 2`
+    tmp=$[i%2]
+    if [ $tmp -eq 0 ]; then
       sum2=$[sum2+i]
     fi
-    #echo "hay qua $sum"
 done
 echo "Tong tu 1 den $n la: $sum"
+echo "Tong cac chan tu 1 den $n la: $sum2"
